@@ -58,14 +58,26 @@ function Principal(){
   }
 }
 */
-
+/*
 function Principal(){
     caracter = prompt("Ingrese una Cadena", "");
     digito = /^[0-9]+\.[0-9]+$/
     if (digito.test(caracter)){
-            alert("Valido")
+            cadenaValida();
     }else{
-            alert("Invalido")
+            cadenaNoValida();
+    }
+}
+*/
+var caracter = prompt("Ingrese una Cadena", "");
+function Principal(caracter){
+    digito = /^[0-9]+\.[0-9]+$/
+    if (digito.test(caracter)){
+            cadenaValida();
+
+
+    }else{
+            cadenaNoValida();
     }
 }
 
@@ -78,4 +90,4 @@ function cadenaNoValida(){
       alert("Cadena Invalida");
 }
 
-Principal();
+Principal(caracter);
