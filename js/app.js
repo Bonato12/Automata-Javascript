@@ -58,18 +58,10 @@ function Principal(){
   }
 }
 */
-/*
-function Principal(){
-    caracter = prompt("Ingrese una Cadena", "");
-    digito = /^[0-9]+\.[0-9]+$/
-    if (digito.test(caracter)){
-            cadenaValida();
-    }else{
-            cadenaNoValida();
-    }
-}
-*/
+
 var caracter = prompt("Ingrese una Cadena", "");
+
+//Funcion que reconoce si el Caracter es Valido o no
 function Principal(caracter){
     digito = /^[0-9]+\.[0-9]+$/
     if (digito.test(caracter)){
@@ -81,7 +73,6 @@ function Principal(caracter){
     }
 }
 
-
 function cadenaValida(){
       alert("Cadena Valida");
 }
@@ -90,4 +81,26 @@ function cadenaNoValida(){
       alert("Cadena Invalida");
 }
 
+function Estado(caracter){
+      digito = /^[0-9]+([,][0-9]+)?$/;
+      var partir = caracter.split(".",1);
+      document.write(partir);
+      var estado = 0;
+      for (var i = 0; i<= caracter.length -1; i++){
+          if (i==0){
+            estado = 0;
+            console.log(caracter[0],estado);
+          }else{
+            if (caracter[i] == '.'){
+                estado = 1;
+                console.log(caracter[i],estado);
+            }else{
+              estado = 1;
+                console.log(caracter[i],estado);
+            }
+         }
+      }
+}
+
 Principal(caracter);
+Estado(caracter);
