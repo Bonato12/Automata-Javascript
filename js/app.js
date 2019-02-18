@@ -8,7 +8,7 @@ function Principal(caracter){
           return 0
 
     }else{
-          if(caracter=='.'){
+          if(caracter =='.'){
               simbolo="Operador";
               return 1
 
@@ -28,7 +28,11 @@ function Principal(caracter){
 
 function contenido(estadoAct,character,simbolo,estadoSig){
       console.log("|     ",estadoSig,"      |  ",character,"    |",simbolo," |     ",estadoAct,"       |");
-      //document.getElementById("digito").innerHTML = character;
+      //document.write("<h4>",estadoSig,character,simbolo,estadoAct ,"</h4>");
+      document.write('<center><table width:"100%" border="1px solid black">');
+      document.write('<tr align="center"><td width="180px" >' + estadoSig + '</td><td width="180px">' +  character + '</td><td width="180px">' + simbolo + '</td><td width="180px">' + estadoAct + '</td></tr>');
+      document.write('</table></center>');
+
 }
 
 
@@ -46,15 +50,19 @@ var tabla=[[1,8,4,8],
 
 function Estado(caracter,tabla){
       var estadoAct = 0;
+      var lista = []
       for(var item in caracter){
             var estadoSig= estadoAct;
             var charcaracter = Principal(caracter[item]);
             var estadoAct = tabla[estadoAct][charcaracter];
             contenido(estadoAct,caracter[item],simbolo,estadoSig);
 
-
        }
-}
 
+
+}
+document.write('<center><table width:"100%" border="1">');
+document.write('<tr align="center"><td width="180px" >' + "EstadoAct" + '</td><td width="180px">' +  "Caracter" + '</td><td width="180px" >' + "Simbolo" + '</td><td width="180px" >' + "EstadoSig" + '</td></tr>');
+document.write('</table></center>');
 var caracter = prompt("Ingrese una Cadena", "");
 Estado(caracter,tabla);
