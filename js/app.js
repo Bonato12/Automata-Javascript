@@ -3,21 +3,22 @@ console.log("Conectado");
 var simbolo = " ";
 
 function Principal(caracter){
-    //digito = /^[0-9]+\.[0-9]+$/
-
     if (caracter >=0 && caracter <= 9){
-    simbolo = "digito";
-    return 0
+          simbolo = "Digito";
+          return 0
 
     }else{
           if(caracter=='.'){
-              simbolo="Operador"
+              simbolo="Operador";
               return 1
 
+          }else if(caracter == '-'){
+              simbolo="Operador";
+              return 2
           }
           else{
-              simbolo="  Error "
-              return 5
+              simbolo="Error";
+              return 3
           }
 
     }
@@ -25,31 +26,31 @@ function Principal(caracter){
 }
 
 
-function contenido(estadosig,character,simbolo,estado){
-      console.log("|     ",estadosig,"      |  ",character,"    |",simbolo," |     ",estado,"       |");
-      document.getElementById("digito").innerHTML = character;
+function contenido(estadoAct,character,simbolo,estadoSig){
+      console.log("|     ",estadoSig,"      |  ",character,"    |",simbolo," |     ",estadoAct,"       |");
+      //document.getElementById("digito").innerHTML = character;
 }
 
 
 
-var tabla=[[1,8,8,4,8,8],
-           [1,2,2,8,5,8],
-           [3,8,8,8,8,8],
-           [3,8,8,8,5,8],
-           [1,8,8,8,8,8],
-           [6,8,8,7,8,8],
-           [6,8,8,8,8,8],
-           [6,8,8,8,8,8],
-           [8,8,8,8,8,8]]
+var tabla=[[1,8,4,8],
+           [1,2,8,8],
+           [3,8,8,8],
+           [3,8,8,8],
+           [1,8,8,8],
+           [6,8,7,8],
+           [6,8,8,8],
+           [6,8,8,8],
+           [8,8,8,8]]
 
 
 function Estado(caracter,tabla){
-      var estado = 0;
+      var estadoAct = 0;
       for(var item in caracter){
-            var estadoSig= estado;
+            var estadoSig= estadoAct;
             var charcaracter = Principal(caracter[item]);
-            var estado= tabla[estado][charcaracter];
-            contenido(estadoSig,caracter[item],simbolo,estado);
+            var estadoAct = tabla[estadoAct][charcaracter];
+            contenido(estadoAct,caracter[item],simbolo,estadoSig);
 
 
        }
