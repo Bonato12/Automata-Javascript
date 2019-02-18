@@ -6,7 +6,6 @@ function Principal(caracter){
     if (caracter >=0 && caracter <= 9){
           simbolo = "Digito";
           return 0
-
     }else{
           if(caracter =='.'){
               simbolo="Operador";
@@ -55,11 +54,10 @@ var tabla=[[1,8,4,8],
 
 function Estado(caracter,tabla){
       var estadoAct = 0;
-      var lista = []
       for(var item in caracter){
             var estadoSig= estadoAct;
-            var charcaracter = Principal(caracter[item]);
-            var estadoAct = tabla[estadoAct][charcaracter];
+            var valor = Principal(caracter[item]);
+            var estadoAct = tabla[estadoAct][valor];
             Tabla(estadoAct,caracter[item],simbolo,estadoSig);
 
        }
