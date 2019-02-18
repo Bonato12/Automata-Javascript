@@ -26,9 +26,14 @@ function Principal(caracter){
 }
 
 
-function contenido(estadoAct,character,simbolo,estadoSig){
-      console.log("|     ",estadoSig,"      |  ",character,"    |",simbolo," |     ",estadoAct,"       |");
-      //document.write("<h4>",estadoSig,character,simbolo,estadoAct ,"</h4>");
+function CabeceraTabla(){
+      document.write('<center><table width:"100%" border="1">');
+      document.write('<tr align="center"><td width="180px" >' + "EstadoAct" + '</td><td width="180px">' +  "Caracter" + '</td><td width="180px" >' + "Simbolo" + '</td><td width="180px" >' + "EstadoSig" + '</td></tr>');
+      document.write('</table></center>');
+}
+
+
+function Tabla(estadoAct,character,simbolo,estadoSig){
       document.write('<center><table width:"100%" border="1px solid black">');
       document.write('<tr align="center"><td width="180px" >' + estadoSig + '</td><td width="180px">' +  character + '</td><td width="180px">' + simbolo + '</td><td width="180px">' + estadoAct + '</td></tr>');
       document.write('</table></center>');
@@ -55,14 +60,13 @@ function Estado(caracter,tabla){
             var estadoSig= estadoAct;
             var charcaracter = Principal(caracter[item]);
             var estadoAct = tabla[estadoAct][charcaracter];
-            contenido(estadoAct,caracter[item],simbolo,estadoSig);
+            Tabla(estadoAct,caracter[item],simbolo,estadoSig);
 
        }
 
 
 }
-document.write('<center><table width:"100%" border="1">');
-document.write('<tr align="center"><td width="180px" >' + "EstadoAct" + '</td><td width="180px">' +  "Caracter" + '</td><td width="180px" >' + "Simbolo" + '</td><td width="180px" >' + "EstadoSig" + '</td></tr>');
-document.write('</table></center>');
+
 var caracter = prompt("Ingrese una Cadena", "");
+CabeceraTabla();
 Estado(caracter,tabla);
